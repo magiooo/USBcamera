@@ -4,12 +4,12 @@ from flask import Flask, render_template, Response
 # from processor.motion_detector import MotionDetector as VideoCamera
 # from processor.qr_detector import QRDetector as VideoCamera
 # from processor.face_detector import FaceDetector as VideoCamera
-from processor.person_detector import PersonDetector as VideoCamera
+from processor.person_detector import PersonDetector as WebcamVideoStream
 
 import time
 import threading
 
-video_camera = VideoCamera(flip=False)
+video_camera = WebcamVideoStream(flip=False)
 
 
 app = Flask(__name__)
