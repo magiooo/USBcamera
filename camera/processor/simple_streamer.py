@@ -7,7 +7,7 @@ import cv2
 
 class SimpleStreamer(object):
     def __init__(self, flip = False):
-        self.vs = Widecam(resolution=(400, 304), framerate=3).start()
+        self.vs = WidecamVideoCapture(resolution=(400, 304), framerate=3).start()
         self.flip = flip
         time.sleep(2.0)
 
