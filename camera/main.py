@@ -9,7 +9,7 @@ from processor.person_detector import PersonDetector as VideoCamera
 import time
 import threading
 
-video_camera = WidecamVideoStream(flip=False)
+video_camera = VideoCamera(flip=False)
 
 
 app = Flask(__name__)
