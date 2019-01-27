@@ -7,10 +7,7 @@ import cv2
 
 class SimpleStreamer(object):
     def __init__(self, flip = False):
-        try:
-            self.vs = PiVideoStream(resolution=(640, 480)).start()
-        except:
-            print(slf.vs)
+        self.vs = cv2.VideoCapture(resolution=(400, 304), framerate=3).start()
         self.flip = flip
         time.sleep(2.0)
 
@@ -19,11 +16,10 @@ class SimpleStreamer(object):
 
     def flip_if_needed(self, frame):
         if self.flip:
-            return np.flip(frame, 1)
+            return np.flip(frame, 0)
         return frame
 
     def get_frame(self):
         frame = self.flip_if_needed(self.vs.read())
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()
-
