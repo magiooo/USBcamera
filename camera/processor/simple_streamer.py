@@ -7,12 +7,20 @@ import cv2
 
 class SimpleStreamer(object):
     def __init__(self, flip = False):
-        self.vs = cv2.VideoCapture(0)(resolution=(400, 304), framerate=3).start()
+        # Define the codec and create VideoWriter object
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        self.out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
+        # Video Capture
+        try:
+            self.vc = cv2.VideoCapture(0)
+        except:
+            print(self.vc)
         self.flip = flip
         time.sleep(2.0)
 
     def __del__(self):
-        self.vs.stop()
+        self.out.release()
+        self.vc.release()
 
     def flip_if_needed(self, frame):
         if self.flip:
