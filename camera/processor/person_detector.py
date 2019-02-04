@@ -13,7 +13,7 @@ net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt',
 
 class PersonDetector(object):
     def __init__(self, flip = True):
-        self.vc = cv2.VideoCapture(0).start()
+        self.vc = cv2.VideoCapture(0)
         self.flip = flip
         time.sleep(2.0)
         
