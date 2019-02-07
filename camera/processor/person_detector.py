@@ -33,7 +33,7 @@ class PersonDetector(object):
         return frame
 
     def get_frame(self):
-        frame = self.flip_if_needed(self.vs.read())
+        frame = self.flip_if_needed(self.out.read())
         frame = self.process_image(frame)
         ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg.tobytes()
