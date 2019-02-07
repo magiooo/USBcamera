@@ -47,6 +47,7 @@ class PersonDetector(object):
         ret, frame = self.vc.read()
         ret, image = self.get_output_image(frame)
         frame = self.process_image(frame)
+        ret, image = cv2.imencode('.image', frame)
 #        print('pass3')
         return image.tobytes()
 
