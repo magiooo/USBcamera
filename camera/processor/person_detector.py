@@ -12,8 +12,15 @@ net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt',
 
 
 class PersonDetector(object):
-    def __init__(self, flip = True):
-        self.vs = PiVideoStream(resolution=(800, 608)).start()
+    def __init__(self, flip = False):
+        # Define the codec and create VideoWriter object
+        fourcc = cv2.VideoWriter_fourcc(*'XVID')
+        self.out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
+        # Video Capture
+        try:
+            self.vc = cv2.VideoCapture(0)
+        except:
+            print(self.vc)
         self.flip = flip
         time.sleep(2.0)
         
