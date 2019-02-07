@@ -12,7 +12,7 @@ net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt',
 
 
 class PersonDetector(object):
-    def __init__(self, flip = False):
+    def __init__(self, flip = True):
         # Define the codec and create VideoWriter object
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         self.out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
