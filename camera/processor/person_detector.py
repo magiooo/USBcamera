@@ -61,7 +61,7 @@ class PersonDetector(object):
         count = 0
         for i in np.arange(0, detections.shape[2]):
             confidence = detections[0, 0, i, 2]
-#            print('pass4')
+            print('pass4')
             if confidence < 0.2:
                 continue
 
