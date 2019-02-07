@@ -15,7 +15,7 @@ class PersonDetector(object):
     def __init__(self, flip = False):
         # Define the codec and create VideoWriter object
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
-        self.out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
+        self.out = cv2.VideoWriter('output.avi',fourcc, 20.0, (400,304))
         # Video Capture
         try:
             self.vc = cv2.VideoCapture(0)
