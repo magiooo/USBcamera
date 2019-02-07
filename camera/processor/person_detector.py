@@ -63,10 +63,12 @@ class PersonDetector(object):
             confidence = detections[0, 0, i, 2]
 #            print('pass4')
             if confidence < 0.2:
+                print('pass6')
                 continue
 
             idx = int(detections[0, 0, i, 1])
             if idx != 15:
+                print('pass7')
                 continue
 
             box = detections[0, 0, i, 3:7] * np.array([w, h, w, h])
