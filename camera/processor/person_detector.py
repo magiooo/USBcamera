@@ -31,6 +31,7 @@ class PersonDetector(object):
     def get_output_image(self, frame):
         if self.flip:
             flipped_frame = cv2.flip(frame, 0)
+            print ('pass1')
             return cv2.imencode('.jpg', flipped_frame)
         return cv2.imencode('.jpg', frame)
 
@@ -38,12 +39,14 @@ class PersonDetector(object):
         ret, frame = self.vc.read()
         if self.flip:
             flipped_frame = cv2.flip(frame, 0)
+            print('pass2')
             return self.out.write(flipped_frame)
         return self.out.write(frame)
 
     def get_frame(self):
         ret, frame = self.vc.read()
         ret, image = self.get_output_image(frame)
+        print('pass3')
         return image.tobytes()
 
     def process_image(self, frame):
@@ -56,7 +59,7 @@ class PersonDetector(object):
         count = 0
         for i in np.arange(0, detections.shape[2]):
             confidence = detections[0, 0, i, 2]
-
+            print('pass4')
             if confidence < 0.2:
                 continue
 
@@ -74,5 +77,6 @@ class PersonDetector(object):
         
         if count > 0:
             print('Count: {}'.format(count))
+            print('pass5')
                 
         return frame
