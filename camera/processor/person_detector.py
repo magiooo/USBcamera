@@ -29,7 +29,7 @@ class PersonDetector(object):
         self.vc.release()
 
     def get_output_image(self, frame):
-     if self.flip:
+        if self.flip:
         flipped_frame = cv2.flip(frame, 0)
         return cv2.imencode('.jpg', flipped_frame)
         return cv2.imencode('.jpg', frame)
