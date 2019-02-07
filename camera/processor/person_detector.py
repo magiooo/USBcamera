@@ -34,10 +34,9 @@ class PersonDetector(object):
         return frame
 
     def get_frame(self):
-        frame = self.flip_if_needed(self.vc.read())
-        frame = self.process_image(frame)
-        ret, jpeg = cv2.imencode('.jpg', frame)
-        return jpeg.tobytes()
+        ret, frame = self.vc.read()
+        ret, image = self.get_output_image(frame)
+        return image.tobytes()
 
     def process_image(self, frame):
         frame = imutils.resize(frame, width=300)
