@@ -47,9 +47,9 @@ class PersonDetector(object):
         return image.tobytes()
 
     def process_image(self, frame):
-        frame = imutils.resize(frame, width=300)
+        frame = imutils.resize(frame, width=600)
         (h, w) = frame.shape[:2]
-        blob = cv2.dnn.blobFromImage(frame, 0.007843, (150, 150), 127.5)
+        blob = cv2.dnn.blobFromImage(frame, 0.007843, (600, 600), 127.5)
         net.setInput(blob)
         detections = net.forward()
 
