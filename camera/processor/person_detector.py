@@ -18,8 +18,8 @@ try:
 except KeyError as e:
     sys.exit('Couldn\'t find env: {}'.format(e))
 
-net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNet_deploy.prototxt',
-        '/home/pi/models/MobileNet_deploy.caffemodel')
+net = cv2.dnn.readNetFromCaffe('/home/pi/models/MobileNetSSD_deploy.prototxt',
+        '/home/pi/models/MobileNetSSD_deploy.caffemodel')
 
 def upload():
     image = { 'file': open('hello.jpg', 'rb') }
