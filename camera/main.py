@@ -22,7 +22,6 @@ def gen(camera):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
     return Response(gen(video_camera),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
